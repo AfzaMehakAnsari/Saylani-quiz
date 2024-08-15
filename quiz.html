@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+</head>
+<body>
+    <h1>JavaScript Quiz</h1>
+    <form id="quiz-form">
+        <div>
+            <label>1. What keyword is used to declare a variable?</label><br>
+            <input type="radio" name="question1" value="let"> let<br>
+            <input type="radio" name="question1" value="var"> var<br>
+            <input type="radio" name="question1" value="const"> const<br>
+            <input type="radio" name="question1" value="declare"> declare
+        </div>
+
+        <div>
+            <label>2. What method is used to log messages to the console?</label><br>
+            <input type="radio" name="question2" value="log"> log<br>
+            <input type="radio" name="question2" value="print"> print<br>
+            <input type="radio" name="question2" value="console.log"> console.log<br>
+            <input type="radio" name="question2" value="output"> output
+        </div>
+
+        <div>
+            <label>3. Which type of loop runs as long as a specified condition is true?</label><br>
+            <input type="radio" name="question3" value="for"> for<br>
+            <input type="radio" name="question3" value="do-while"> do-while<br>
+            <input type="radio" name="question3" value="while"> while<br>
+            <input type="radio" name="question3" value="foreach"> foreach
+        </div>
+
+        <div>
+            <label>4. What keyword is used to define a function?</label><br>
+            <input type="radio" name="question4" value="function"> function<br>
+            <input type="radio" name="question4" value="def"> def<br>
+            <input type="radio" name="question4" value="fn"> fn<br>
+            <input type="radio" name="question4" value="define"> define
+        </div>
+
+        <div>
+            <label>5. Which keyword refers to the current object in JavaScript?</label><br>
+            <input type="radio" name="question5" value="self"> self<br>
+            <input type="radio" name="question5" value="this"> this<br>
+            <input type="radio" name="question5" value="current"> current<br>
+            <input type="radio" name="question5" value="context"> context
+        </div>
+
+        <div>
+            <label>6. What type of value does the typeof operator return for arrays?</label><br>
+            <input type="radio" name="question6" value="array"> array<br>
+            <input type="radio" name="question6" value="object"> object<br>
+            <input type="radio" name="question6" value="list"> list<br>
+            <input type="radio" name="question6" value="collection"> collection
+        </div>
+
+        <div>
+            <label>7. Which operator is used to compare both value and type?</label><br>
+            <input type="radio" name="question7" value="=="> ==<br>
+            <input type="radio" name="question7" value="==="> ===<br>
+            <input type="radio" name="question7" value="!="> !=<br>
+            <input type="radio" name="question7" value="!=="> !==
+        </div>
+
+        <div>
+            <label>8. What is the default value of an uninitialized variable?</label><br>
+            <input type="radio" name="question8" value="null"> null<br>
+            <input type="radio" name="question8" value="undefined"> undefined<br>
+            <input type="radio" name="question8" value="0"> 0<br>
+            <input type="radio" name="question8" value="NaN"> NaN
+        </div>
+
+        <div>
+            <label>9. What keyword is used to declare a constant variable?</label><br>
+            <input type="radio" name="question9" value="var"> var<br>
+            <input type="radio" name="question9" value="let"> let<br>
+            <input type="radio" name="question9" value="const"> const<br>
+            <input type="radio" name="question9" value="constant"> constant
+        </div>
+
+        <div>
+            <label>10. Which method converts a JSON string into a JavaScript object?</label><br>
+            <input type="radio" name="question10" value="stringify"> stringify<br>
+            <input type="radio" name="question10" value="convert"> convert<br>
+            <input type="radio" name="question10" value="parse"> parse<br>
+            <input type="radio" name="question10" value="deserialize"> deserialize
+        </div>
+
+        <button type="button" onclick="quiz()">Submit</button>
+    </form>
+
+    <div id="score-container" style="display: none; background-color: #4CAF50; padding: 10px; margin-top: 20px;"></div>
+    <div id="thanks-message" style="display: none; margin-top: 10px;">Thank you for taking the quiz!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
