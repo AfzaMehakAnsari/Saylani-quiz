@@ -1,46 +1,64 @@
-function quiz() {
-    var score = 0;
+function login(){
+    let username = document.querySelector("#username");
+    let greeting = document.querySelector("#greeting");
 
-    // Get the user's selected answers
-    var question1 = document.querySelector('input[name="question1"]:checked');
-    var question2 = document.querySelector('input[name="question2"]:checked');
-    var question3 = document.querySelector('input[name="question3"]:checked');
-    var question4 = document.querySelector('input[name="question4"]:checked');
-    var question5 = document.querySelector('input[name="question5"]:checked');
-    var question6 = document.querySelector('input[name="question6"]:checked');
-    var question7 = document.querySelector('input[name="question7"]:checked');
-    var question8 = document.querySelector('input[name="question8"]:checked');
-    var question9 = document.querySelector('input[name="question9"]:checked');
-    var question10 = document.querySelector('input[name="question10"]:checked');
+    document.getElementById("body").style.display = "none";
+    document.getElementById("welcome").style.display = "block";
 
-    // Check the answers (make sure to check if the user selected an option)
-    if (question1 && question1.value === "var") score++;
-    if (question2 && question2.value === "console.log") score++;
-    if (question3 && question3.value === "while") score++;
-    if (question4 && question4.value === "function") score++;
-    if (question5 && question5.value === "this") score++;
-    if (question6 && question6.value === "object") score++;
-    if (question7 && question7.value === "===") score++;
-    if (question8 && question8.value === "undefined") score++;
-    if (question9 && question9.value === "const") score++;
-    if (question10 && question10.value === "parse") score++;
-
-    // Display score and message
-    var message;
-    if (score >= 9) {
-        message = "Excellent!";
-    } else if (score >= 7) {
-        message = "Great job!";
-    } else if (score >= 5) {
-        message = "Good job!";
-    } else {
-        message = "Keep trying!";
-    }
-
-    var scoreContainer = document.getElementById("score-container");
-    scoreContainer.innerText = "Your total score is: " + score + "/10.\n" + message;
-    scoreContainer.style.display = "block";
-    scoreContainer.style.color = "white";
-
-    document.getElementById("thanks-message").style.display = "block";
+    greeting.innerHTML = `Hi, ${username.value} <img src="assets/wave.png" alt="wave image" width="50px">`;
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('quiz-form');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission to avoid page reload
+        
+        // Define the correct answers
+        const correctAnswers = {
+            question1: 'div',
+            question2: 'alternative-text',
+            question3: 'ol',
+            question4: 'color',
+            question5: 'flexible-layouts',
+            question6: 'class-attribute',
+            question7: 'var',
+            question8: 'log-data',
+            question9: 'function',
+            question10: 'double-equals'
+        };
+
+        let score = 0;
+        let totalQuestions = Object.keys(correctAnswers).length;
+
+        // Iterate through each question
+        for (let question in correctAnswers) {
+            // Get selected answer
+            const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+            
+            // Check if answer is correct
+            if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+                score++;
+            }
+        }
+
+        // Determine message based on score
+        let message;
+        if (score >= 9) {
+            message = "Excellent!";
+        } else if (score >= 7) {
+            message = "Great job!";
+        } else if (score >= 5) {
+            message = "Good job!";
+        } else {
+            message = "Keep trying!";
+        }
+
+        // Show the result and hide the quiz container
+        document.getElementById("quiz-container").style.display = "none";
+        document.getElementById("result").style.display = "block";
+
+        // Update the score container with the score and message
+        document.getElementById("score-container").innerText = `Your total score is ${score}/${totalQuestions}\n${message}`;
+    });
+});
